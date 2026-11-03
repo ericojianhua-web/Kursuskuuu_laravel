@@ -1,22 +1,9 @@
 
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+@extends('layouts.app')
 
-    <title>{{ $siteName }}</title>
+@section('title', $siteName . ' - Beranda')
 
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-</head>
-<body>
-
-    <!-- Navbar -->
-    <header class="navbar">
-        <div class="container">
-            <h2>{{ $siteName }}</h2>
-        </div>
-    </header>
+@section('content')
 
     <!-- Hero -->
     <section class="hero">
@@ -71,13 +58,4 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p>
-            &copy; {{ date('Y') }} {{ $siteName }}.
-            Semua hak dilindungi.
-        </p>
-    </footer>
-
-</body>
-</html>
+@endsection
