@@ -1,9 +1,9 @@
-
 <?php
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CourseController;
 
 // ==========================================
 // HALAMAN UTAMA
@@ -52,7 +52,6 @@ Route::post('/enrollments/preview', function (Request $request) {
 
     $siteName = 'KursusKu Erik Ajaya';
 
-    // Validasi data pendaftaran
     $validated = $request->validate([
         'name' => 'required|string|max:100',
         'email' => 'required|email|max:100',
@@ -67,14 +66,12 @@ Route::post('/enrollments/preview', function (Request $request) {
         'course_id.in' => 'Pilihan kursus tidak valid.',
     ]);
 
-    // Daftar nama kursus
     $courses = [
         1 => 'Web Dasar',
         2 => 'PHP Dasar',
         3 => 'Laravel Dasar',
     ];
 
-    // Mengambil nama kursus berdasarkan ID
     $validated['course_name'] = $courses[$validated['course_id']];
 
     return view('enrollments.preview', compact(
@@ -106,13 +103,18 @@ Route::get('/courses/{course}/availability', function ($course) {
         ],
     ];
 
-    // Jika ID kursus tidak ditemukan
     abort_unless(isset($courses[$course]), 404);
 
-    // Mengirim data dalam format JSON
     return response()->json([
         'course' => $courses[$course]['name'],
         'remaining' => $courses[$course]['remaining'],
     ]);
 
 })->whereNumber('course')->name('courses.availability');
+
+
+// ==========================================
+// MANAJEMEN DATA KURSUS (WEEK 10)
+// ==========================================
+
+Route::resource('courses', CourseController::class);

@@ -1,7 +1,7 @@
 
 @extends('layouts.app')
 
-@section('title', $siteName . ' - Beranda')
+@section('title', 'KursusKu Erik Ajaya - Beranda')
 
 @section('content')
 
@@ -19,6 +19,10 @@
                 </p>
 
                 <a href="#kursus" class="btn">Lihat Kursus</a>
+
+                <a href="{{ route('enrollments.create') }}" class="btn">
+                    Daftar Sekarang
+                </a>
             </div>
 
             <img
@@ -34,25 +38,62 @@
         <div class="container">
 
             <div class="section-title">
-                <h2>Kursus Unggulan</h2>
+                <h2>Daftar Kursus</h2>
                 <p>Pilih kursus untuk memulai perjalanan belajarmu.</p>
             </div>
 
             <div class="course-grid">
 
-                @foreach ($featured as $course)
+                @forelse ($featured as $course)
                     <article class="course-card">
 
                         <span class="course-code">
-                            {{ $course['code'] }}
+                            {{ $course->code }}
                         </span>
 
-                        <h3>{{ $course['name'] }}</h3>
+                        <h3>{{ $course->name }}</h3>
 
-                        <p>{{ $course['description'] }}</p>
+                        <p>
+                            {{ $course->description ?? 'Belum ada deskripsi kursus.' }}
+                        </p>
+
+                        <p>
+                            <strong>Biaya:</strong>
+                            Rp{{ number_format($course->fee, 0, ',', '.') }}
+                        </p>
+
+                        <p>
+                            <strong>Kuota:</strong>
+                            {{ $course->quota }} peserta
+                        </p>
+
+                        <p>
+                            <strong>Status:</strong>
+
+                            @if ($course->status === 'open')
+                                <span class="badge bg-success">Open</span>
+                            @elseif ($course->status === 'closed')
+                                <span class="badge bg-danger">Closed</span>
+                            @else
+                                <span class="badge bg-secondary">Draft</span>
+                            @endif
+                        </p>
+
+                        @if ($course->status === 'open')
+                            <a href="{{ route('enrollments.create') }}" class="btn">
+                                Daftar Sekarang
+                            </a>
+                        @else
+                            <button class="btn" disabled>
+                                Belum Tersedia
+                            </button>
+                        @endif
 
                     </article>
-                @endforeach
+
+                @empty
+                    <p>Belum ada kursus yang tersedia.</p>
+                @endforelse
 
             </div>
         </div>

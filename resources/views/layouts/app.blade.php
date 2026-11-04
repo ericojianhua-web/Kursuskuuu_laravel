@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>@yield('title', $siteName)</title>
+    <title>@yield('title', 'KursusKu Erik Ajaya')</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -21,7 +21,7 @@
 
     <footer class="footer">
         <p>
-            &copy; {{ date('Y') }} {{ $siteName }}.
+            &copy; {{ date('Y') }} KursusKu Erik Ajaya.
             Semua hak dilindungi.
         </p>
     </footer>

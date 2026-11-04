@@ -1,7 +1,7 @@
 <?php
-
-
 namespace App\Http\Controllers;
+
+use App\Models\Course;
 
 class HomeController extends Controller
 {
@@ -9,23 +9,7 @@ class HomeController extends Controller
     {
         $siteName = 'KursusKu Erik Ajaya';
 
-        $featured = [
-            [
-                'code' => 'WEB-01',
-                'name' => 'HTML dan CSS',
-                'description' => 'Belajar membuat struktur dan tampilan website.'
-            ],
-            [
-                'code' => 'PHP-01',
-                'name' => 'PHP Dasar',
-                'description' => 'Belajar variabel, function, form, dan logika PHP.'
-            ],
-            [
-                'code' => 'LAR-01',
-                'name' => 'Laravel Fundamental',
-                'description' => 'Belajar route, controller, Blade, dan MVC.'
-            ],
-        ];
+        $featured = Course::latest()->get();
 
         return view('home', compact('siteName', 'featured'));
     }
