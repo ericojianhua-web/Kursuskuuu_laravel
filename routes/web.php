@@ -1,9 +1,12 @@
+
 <?php
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\EnrollmentController;
 
 // ==========================================
 // HALAMAN UTAMA
@@ -14,38 +17,24 @@ Route::get('/', [HomeController::class, 'index'])
 
 
 // ==========================================
-// FORM PENDAFTARAN KURSUS
+// PENDAFTARAN KURSUS (WEEK 12)
 // ==========================================
 
-Route::get('/enrollments/create', function () {
+// Menampilkan formulir pendaftaran
+Route::get('/enrollments/create', [EnrollmentController::class, 'create'])
+    ->name('enrollments.create');
 
-    $siteName = 'KursusKu Erik Ajaya';
+// Menyimpan pendaftaran kursus
+Route::post('/enrollments', [EnrollmentController::class, 'store'])
+    ->name('enrollments.store');
 
-    $courses = [
-        1 => [
-            'name' => 'Web Dasar',
-            'remaining' => 12
-        ],
-        2 => [
-            'name' => 'PHP Dasar',
-            'remaining' => 8
-        ],
-        3 => [
-            'name' => 'Laravel Dasar',
-            'remaining' => 4
-        ],
-    ];
-
-    return view('enrollments.create', compact(
-        'courses',
-        'siteName'
-    ));
-
-})->name('enrollments.create');
+// Menampilkan laporan pendaftaran
+Route::get('/enrollments', [EnrollmentController::class, 'index'])
+    ->name('enrollments.index');
 
 
 // ==========================================
-// PROSES DAN VALIDASI PENDAFTARAN
+// FORM PENDAFTARAN LAMA (WEEK 09)
 // ==========================================
 
 Route::post('/enrollments/preview', function (Request $request) {

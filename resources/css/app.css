@@ -1,10 +1,1035 @@
-
 @import 'bootstrap/dist/css/bootstrap.min.css';
+/* =========================================
+   KURSUSKU ERIK AJAYA
+   GLOBAL DESIGN
+========================================= */
 
-body {
-    background-color: #f7f8fa;
+.kk-home,
+.kk-register {
+    font-family: Arial, sans-serif;
 }
 
-.navbar-brand {
+.kk-home {
+    --kk-blue: #258cff;
+    --kk-cyan: #35d8ff;
+    --kk-navy: #071329;
+    overflow: hidden;
+    width: 100%;
+}
+
+
+/* =========================================
+   HERO SECTION
+========================================= */
+
+.kk-home .kk-hero {
+    position: relative;
+    overflow: hidden;
+    padding: 90px 0;
+    color: #f4f8ff;
+    background:
+        radial-gradient(ellipse at 85% 40%, rgba(0,145,255,.25), transparent 45%),
+        linear-gradient(125deg,#061126,#0b2450 55%,#073b78);
+}
+
+.kk-home .kk-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: .12;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(255,255,255,.12) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.12) 1px,transparent 1px);
+    background-size: 45px 45px;
+}
+
+.kk-home .kk-hero-content {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+    align-items: center;
+    gap: 55px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.kk-home .kk-hero-text,
+.kk-home .kk-hero-visual {
+    min-width: 0;
+    width: 100%;
+}
+
+.kk-home .kk-label {
+    display: inline-block;
+    color: #51d9ff;
+    font-size: 12px;
     font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.kk-home .kk-hero-text h1 {
+    color: white;
+    font-size: clamp(38px,5vw,62px);
+    line-height: 1.15;
+    font-weight: 800;
+    letter-spacing: -2px;
+    margin-bottom: 22px;
+}
+
+.kk-home .kk-hero-text h1 span,
+.kk-home .kk-section-heading h2 span {
+    display: inline-block;
+    color: #48cfff;
+    background: linear-gradient(90deg,#36baff,#58e5ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.kk-home .kk-hero-text > p {
+    color: #b6c9e8;
+    font-size: 15px;
+    line-height: 1.9;
+    max-width: 540px;
+    margin-bottom: 30px;
+}
+
+.kk-home .kk-hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+}
+
+.kk-home .kk-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 23px;
+    border-radius: 9px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: .3s ease;
+}
+
+.kk-home .kk-btn-primary {
+    color: white;
+    background: linear-gradient(110deg,#1478ed,#24baff);
+    box-shadow: 0 8px 25px rgba(22,144,255,.3);
+}
+
+.kk-home .kk-btn-primary:hover {
+    color: white;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(22,144,255,.5);
+}
+
+.kk-home .kk-btn-outline {
+    color: #e7f3ff;
+    border: 1px solid rgba(111,190,255,.5);
+    background: rgba(255,255,255,.04);
+}
+
+.kk-home .kk-btn-outline:hover {
+    color: white;
+    background: rgba(38,145,255,.2);
+    transform: translateY(-4px);
+}
+
+.kk-home .kk-hero-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 35px;
+    margin-top: 38px;
+}
+
+.kk-home .kk-hero-info div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.kk-home .kk-hero-info strong {
+    color: white;
+    font-size: 14px;
+}
+
+.kk-home .kk-hero-info span {
+    color: #91a9ca;
+    font-size: 12px;
+}
+
+
+/* =========================================
+   HERO VISUAL
+========================================= */
+
+.kk-home .kk-hero-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 380px;
+}
+
+.kk-home .kk-glow {
+    position: absolute;
+    width: 270px;
+    height: 270px;
+    background: #078bff;
+    filter: blur(110px);
+    opacity: .45;
+    border-radius: 50%;
+}
+
+.kk-home .kk-code-card {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 25px;
+    border: 1px solid rgba(112,196,255,.35);
+    border-radius: 20px;
+    background: linear-gradient(145deg,rgba(30,92,160,.5),rgba(7,23,49,.95));
+    backdrop-filter: blur(15px);
+    box-shadow: 0 25px 65px rgba(0,0,0,.35);
+    transform: rotate(-2deg);
+    animation: kk-float 5s ease-in-out infinite;
+}
+
+.kk-home .kk-code-header {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(255,255,255,.12);
+}
+
+.kk-home .kk-code-header span {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #ff647c;
+}
+
+.kk-home .kk-code-header span:nth-child(2) {
+    background: #ffc857;
+}
+
+.kk-home .kk-code-header span:nth-child(3) {
+    background: #35d99b;
+}
+
+.kk-home .kk-code-header p {
+    margin: 0 0 0 auto;
+    color: #83a8d5;
+    font-size: 11px;
+}
+
+.kk-home .kk-code-content {
+    padding: 25px 0;
+    font-family: Consolas,monospace;
+    font-size: clamp(11px,1.3vw,15px);
+    line-height: 2;
+    overflow-x: auto;
+}
+
+.kk-home .kk-code-content p {
+    color: #dff2ff;
+    white-space: nowrap;
+    margin: 0;
+}
+
+.kk-home .kk-code-content p span {
+    display: inline-block;
+    width: 27px;
+    color: #6484ac;
+}
+
+.kk-home .kk-code-success {
+    color: #48e6ae !important;
+}
+
+.kk-home .kk-floating-icon {
+    position: absolute;
+    right: -15px;
+    bottom: -20px;
+    width: 55px;
+    height: 55px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(100,190,255,.4);
+    border-radius: 15px;
+    color: #65dcff;
+    background: #103c70;
+    font-size: 28px;
+    box-shadow: 0 8px 25px rgba(0,0,0,.3);
+}
+
+.kk-home .kk-floating-card {
+    position: absolute;
+    z-index: 2;
+    bottom: 5px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 17px;
+    border: 1px solid rgba(100,190,255,.4);
+    border-radius: 10px;
+    color: #dff6ff;
+    background: rgba(14,53,99,.92);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 25px rgba(0,0,0,.2);
+}
+
+.kk-home .kk-floating-card > span {
+    color: #45d4ff;
+    font-size: 23px;
+}
+
+.kk-home .kk-floating-card div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.kk-home .kk-floating-card strong {
+    font-size: 12px;
+}
+
+.kk-home .kk-floating-card small {
+    color: #a9c3e5;
+    font-size: 10px;
+}
+
+@keyframes kk-float {
+    0%,100% { transform: translateY(0) rotate(-2deg); }
+    50% { transform: translateY(-12px) rotate(0); }
+}
+
+
+/* =========================================
+   STATISTIK
+========================================= */
+
+.kk-home .kk-stats {
+    padding: 30px 0;
+    color: white;
+    background: #0b1d38;
+    border-top: 1px solid rgba(255,255,255,.06);
+    border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+.kk-home .kk-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    align-items: center;
+    gap: 25px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.kk-home .kk-stat-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    gap: 15px;
+}
+
+.kk-home .kk-stat-item > span {
+    color: #35bfff;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.kk-home .kk-stat-item h3 {
+    color: white;
+    font-size: 24px;
+    margin: 0 0 4px;
+}
+
+.kk-home .kk-stat-item p {
+    color: #91a9ca;
+    font-size: 12px;
+    margin: 0;
+}
+
+
+/* =========================================
+   KURSUS
+========================================= */
+
+.kk-home .kk-courses {
+    padding: 85px 0;
+    color: white;
+    background:
+        radial-gradient(ellipse at 50% 0%,rgba(15,94,180,.2),transparent 55%),
+        #09172d;
+}
+
+.kk-home .kk-section-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto 40px;
+}
+
+.kk-home .kk-section-heading > div {
+    flex: 1;
+    min-width: 0;
+}
+
+.kk-home .kk-section-heading h2 {
+    color: #f2f7ff;
+    font-size: clamp(28px,4vw,40px);
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.kk-home .kk-section-heading p {
+    color: #9bb1d0;
+    font-size: 14px;
+    line-height: 1.8;
+    max-width: 550px;
+    margin-bottom: 0;
+}
+
+.kk-home .kk-view-all {
+    color: #55caff;
+    text-decoration: none;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.kk-home .kk-view-all:hover {
+    color: white;
+}
+
+.kk-home .kk-course-grid {
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    align-items: stretch;
+    gap: 25px;
+}
+
+.kk-home .kk-course-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    height: 100%;
+    padding: 25px;
+    overflow: hidden;
+    border: 1px solid rgba(105,165,230,.2);
+    border-radius: 17px;
+    background: linear-gradient(145deg,rgba(24,55,99,.8),rgba(12,29,57,.95));
+    box-shadow: 0 12px 35px rgba(0,0,0,.15);
+    transition: .3s ease;
+}
+
+.kk-home .kk-course-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(58,181,255,.7);
+    box-shadow: 0 18px 40px rgba(0,120,255,.16);
+}
+
+.kk-home .kk-course-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.kk-home .kk-course-icon {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    color: #65dcff;
+    font-family: Consolas,monospace;
+    font-weight: bold;
+    font-size: 17px;
+    background: rgba(24,137,255,.2);
+    border: 1px solid rgba(70,185,255,.3);
+}
+
+.kk-home .kk-course-code {
+    padding: 6px 10px;
+    border-radius: 6px;
+    color: #74d9ff;
+    background: rgba(24,137,255,.12);
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.kk-home .kk-course-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.kk-home .kk-course-body h3 {
+    color: #f2f7ff;
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.kk-home .kk-course-body > p {
+    color: #a6bad7;
+    font-size: 13px;
+    line-height: 1.8;
+    min-height: 75px;
+    margin-bottom: 20px;
+}
+
+.kk-home .kk-course-details {
+    padding: 15px 0;
+    margin-top: auto;
+    border-top: 1px solid rgba(255,255,255,.1);
+    border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+.kk-home .kk-course-details div {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 9px 0;
+}
+
+.kk-home .kk-course-details span {
+    color: #92a9c9;
+    font-size: 12px;
+}
+
+.kk-home .kk-course-details strong {
+    color: #e6f4ff;
+    font-size: 13px;
+    text-align: right;
+}
+
+.kk-home .kk-course-footer {
+    display: flex;
+    align-items: center;
+    min-height: 45px;
+    margin: 10px 0;
+}
+
+.kk-home .kk-status {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.kk-home .kk-open { color: #48e6ae; }
+.kk-home .kk-closed { color: #ff788d; }
+.kk-home .kk-draft { color: #ffc967; }
+
+.kk-home .kk-course-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-height: 45px;
+    padding: 13px 16px;
+    border: 1px solid rgba(61,177,255,.4);
+    border-radius: 9px;
+    color: white;
+    background: linear-gradient(100deg,#1268d6,#149fe9);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.kk-home .kk-course-button:hover:not(:disabled) {
+    color: white;
+    background: linear-gradient(100deg,#1988ff,#27c5ff);
+}
+
+.kk-home .kk-course-button:disabled {
+    color: #8c9db5;
+    background: rgba(91,111,140,.15);
+    border-color: rgba(255,255,255,.08);
+    cursor: not-allowed;
+}
+
+.kk-home .kk-empty {
+    grid-column: 1 / -1;
+    padding: 55px 20px;
+    text-align: center;
+    border: 1px dashed rgba(105,165,230,.3);
+    border-radius: 15px;
+    color: #b6c9e8;
+}
+
+.kk-home .kk-empty h3 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+
+/* =========================================
+   CALL TO ACTION
+========================================= */
+
+.kk-home .kk-cta {
+    padding: 75px 0;
+    text-align: center;
+    color: white;
+    background:
+        radial-gradient(ellipse at center,rgba(21,117,218,.3),transparent 65%),
+        #071329;
+}
+
+.kk-home .kk-cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.kk-home .kk-cta-content > span {
+    display: inline-block;
+    color: #51d9ff;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.kk-home .kk-cta h2 {
+    color: white;
+    font-size: clamp(30px,4vw,46px);
+    line-height: 1.25;
+    font-weight: 800;
+    margin-bottom: 18px;
+}
+
+.kk-home .kk-cta p {
+    color: #a6bad7;
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 27px;
+}
+
+
+/* =========================================
+   FORMULIR PENDAFTARAN
+========================================= */
+
+.kk-register {
+    --reg-cyan: #35d8ff;
+    min-height: 85vh;
+    position: relative;
+    overflow: hidden;
+    padding: 55px 0;
+    color: #eaf6ff;
+    background:
+        radial-gradient(ellipse at 85% 20%,rgba(0,145,255,.2),transparent 45%),
+        linear-gradient(125deg,#061126,#0b2450 55%,#073b78);
+}
+
+.kk-register-glow {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    top: -100px;
+    right: -100px;
+    border-radius: 50%;
+    background: #078bff;
+    filter: blur(120px);
+    opacity: .25;
+    pointer-events: none;
+}
+
+.kk-register-info {
+    position: relative;
+    padding: 20px;
+}
+
+.kk-register-badge {
+    display: inline-block;
+    padding: 9px 16px;
+    border: 1px solid rgba(81,217,255,.35);
+    border-radius: 30px;
+    color: #51d9ff;
+    background: rgba(53,216,255,.08);
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.kk-register-heading {
+    color: white;
+    font-size: clamp(35px,5vw,52px);
+    line-height: 1.2;
+    font-weight: 800;
+}
+
+.kk-register-heading span {
+    display: block;
+    color: #48cfff;
+}
+
+.kk-register-description {
+    max-width: 420px;
+    margin: 20px 0 35px;
+    color: #b6c9e8;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.kk-register-feature {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.kk-feature-icon {
+    width: 45px;
+    height: 45px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(81,217,255,.35);
+    border-radius: 12px;
+    color: #51d9ff;
+    background: rgba(53,216,255,.08);
+    font-weight: bold;
+}
+
+.kk-register-feature h6 {
+    margin: 0 0 5px;
+    color: white;
+    font-weight: bold;
+}
+
+.kk-register-feature p {
+    margin: 0;
+    color: #91a9ca;
+    font-size: 12px;
+}
+
+.kk-register-card {
+    position: relative;
+    padding: 35px;
+    border: 1px solid rgba(112,196,255,.3);
+    border-radius: 20px;
+    background: linear-gradient(145deg,#102b50,#091a34);
+    box-shadow: 0 20px 55px rgba(0,0,0,.3);
+}
+
+.kk-register-card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.kk-register-icon {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    color: white;
+    background: linear-gradient(110deg,#1478ed,#24baff);
+    font-size: 22px;
+}
+
+.kk-register-label {
+    color: #51d9ff;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.kk-register-card-header h2 {
+    margin: 5px 0;
+    color: white;
+    font-size: 23px;
+    font-weight: 800;
+}
+
+.kk-register-card-header p {
+    margin: 0;
+    color: #a6bad7;
+    font-size: 12px;
+}
+
+.kk-register-divider {
+    height: 1px;
+    margin: 25px 0;
+    background: rgba(255,255,255,.12);
+}
+
+.kk-register-card .kk-form-group {
+    margin-bottom: 22px;
+}
+
+.kk-register-card .kk-form-group label {
+    display: block;
+    margin-bottom: 9px;
+    color: #dcecff;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.kk-register-card .kk-form-group label span {
+    margin-right: 7px;
+    color: #51d9ff;
+}
+
+.kk-register-card .kk-form-control {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 15px;
+    border: 1px solid rgba(112,196,255,.3);
+    border-radius: 9px;
+    outline: none;
+    color: #eaf6ff;
+    background: #0a1d38;
+    font-size: 14px;
+    transition: .25s ease;
+}
+
+.kk-register-card .kk-form-control::placeholder {
+    color: #8299b8;
+}
+
+.kk-register-card .kk-form-control option {
+    color: white;
+    background: #0a1d38;
+}
+
+.kk-register-card .kk-form-control:focus {
+    border-color: #35caff;
+    box-shadow: 0 0 0 3px rgba(53,202,255,.13);
+}
+
+.kk-register-card .kk-availability {
+    padding: 13px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(53,202,255,.3);
+    border-radius: 9px;
+    color: #51d9ff;
+    background: rgba(53,202,255,.08);
+    font-size: 13px;
+}
+
+.kk-register-submit {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 50px;
+    padding: 13px 18px;
+    margin-top: 25px;
+    border: none;
+    border-radius: 9px;
+    color: white;
+    background: linear-gradient(110deg,#1478ed,#24baff);
+    box-shadow: 0 8px 25px rgba(22,144,255,.25);
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.kk-register-submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(22,144,255,.4);
+}
+
+.kk-submit-arrow {
+    font-size: 22px;
+}
+
+.kk-register-back {
+    display: block;
+    margin-top: 20px;
+    color: #65d5ff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.kk-register-back:hover {
+    color: white;
+}
+
+.kk-register-footer {
+    margin-top: 28px;
+    padding-top: 17px;
+    border-top: 1px solid rgba(255,255,255,.12);
+    color: #8299b8;
+    text-align: center;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.kk-register-footer span {
+    color: #51d9ff;
+}
+
+
+/* =========================================
+   RESPONSIVE TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .kk-home .kk-hero-content {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .kk-home .kk-hero-text {
+        text-align: center;
+    }
+
+    .kk-home .kk-hero-text > p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .kk-home .kk-hero-buttons,
+    .kk-home .kk-hero-info {
+        justify-content: center;
+    }
+
+    .kk-home .kk-hero-visual {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .kk-home .kk-course-grid {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+    }
+
+}
+
+
+/* =========================================
+   RESPONSIVE HP
+========================================= */
+
+@media (max-width: 600px) {
+
+    .kk-home .kk-hero {
+        padding: 65px 0;
+    }
+
+    .kk-home .kk-hero-text h1 {
+        font-size: 37px;
+        letter-spacing: -1px;
+    }
+
+    .kk-home .kk-hero-buttons {
+        flex-direction: column;
+    }
+
+    .kk-home .kk-btn {
+        width: 100%;
+    }
+
+    .kk-home .kk-hero-info {
+        gap: 18px;
+    }
+
+    .kk-home .kk-hero-visual {
+        min-height: 300px;
+    }
+
+    .kk-home .kk-code-card {
+        padding: 19px;
+    }
+
+    .kk-home .kk-floating-card {
+        left: 0;
+        bottom: -5px;
+    }
+
+    .kk-home .kk-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .kk-home .kk-stat-item {
+        justify-content: flex-start;
+        max-width: 260px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .kk-home .kk-courses {
+        padding: 65px 0;
+    }
+
+    .kk-home .kk-section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .kk-home .kk-course-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .kk-home .kk-course-body > p {
+        min-height: auto;
+    }
+
+    .kk-home .kk-cta {
+        padding: 60px 0;
+    }
+
+    .kk-register {
+        padding: 35px 0;
+    }
+
+    .kk-register-info {
+        padding: 10px 5px 25px;
+    }
+
+    .kk-register-heading {
+        font-size: 36px;
+    }
+
+    .kk-register-card {
+        padding: 23px 18px;
+    }
+
+    .kk-register-card-header h2 {
+        font-size: 19px;
+    }
+
+}
+
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .kk-home .kk-code-card {
+        animation: none;
+    }
+
+    .kk-home .kk-course-card,
+    .kk-home .kk-btn,
+    .kk-home .kk-course-button,
+    .kk-register-submit {
+        transition: none;
+    }
+
 }

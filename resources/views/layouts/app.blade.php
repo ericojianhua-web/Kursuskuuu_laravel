@@ -9,6 +9,7 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+    {{-- CSS tambahan untuk halaman --}}
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>

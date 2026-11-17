@@ -1,30 +1,33 @@
 
 @extends('layouts.app')
 
-@section('title', 'Pendaftaran Kursus - ' . $siteName)
+@section('title', 'Pendaftaran Kursus')
 
 @section('content')
+<div class="container cyber-page">
 
-<div class="container py-5">
+    <div class="text-center mb-4">
+        <h2 class="cyber-title">SYSTEM ENROLLMENT</h2>
+        <p class="cyber-subtitle">
+            Daftarkan peserta ke program kursus KursusKu
+        </p>
+    </div>
+
     <div class="row justify-content-center">
-        <div class="col-md-8 col-lg-7">
+        <div class="col-lg-7">
 
-            <div class="card border-0 shadow-sm">
-                <div class="card-body p-4 p-md-5">
+            <div class="cyber-card">
 
-                    <h2 class="fw-bold mb-2">
-                        Formulir Pendaftaran
-                    </h2>
+                <div class="cyber-header">
+                    <h4 class="mb-1">Form Pendaftaran Kursus</h4>
+                    <small>Silakan lengkapi data pendaftaran</small>
+                </div>
 
-                    <p class="text-muted mb-4">
-                        Daftarkan dirimu dan mulai belajar bersama KursusKu.
-                    </p>
+                <div class="cyber-body">
 
-                    {{-- Pesan validasi --}}
                     @if ($errors->any())
                         <div class="alert alert-danger">
-                            <strong>Terjadi kesalahan:</strong>
-
+                            <strong>Pendaftaran gagal!</strong>
                             <ul class="mb-0 mt-2">
                                 @foreach ($errors->all() as $error)
                                     <li>{{ $error }}</li>
@@ -33,53 +36,37 @@
                         </div>
                     @endif
 
-                    {{-- Form pendaftaran --}}
-                    <form
-                        action="{{ route('enrollments.preview') }}"
-                        method="POST"
-                    >
-
+                    <form action="{{ route('enrollments.store') }}" method="POST">
                         @csrf
 
-                        {{-- Nama lengkap --}}
-                        <div class="mb-3">
-                            <label for="name" class="form-label">
-                                Nama Lengkap
+                        <div class="mb-4">
+                            <label for="participant_id" class="form-label">
+                                <i class="bi bi-person-circle"></i>
+                                Pilih Peserta
                             </label>
 
-                            <input
-                                type="text"
-                                name="name"
-                                id="name"
-                                class="form-control"
-                                placeholder="Masukkan nama lengkap"
-                                value="{{ old('name') }}"
-                                maxlength="100"
+                            <select
+                                name="participant_id"
+                                id="participant_id"
+                                class="form-select"
                                 required
                             >
+                                <option value="">-- Pilih Peserta --</option>
+
+                                @foreach ($participants as $participant)
+                                    <option
+                                        value="{{ $participant->id }}"
+                                        {{ old('participant_id') == $participant->id ? 'selected' : '' }}
+                                    >
+                                        {{ $participant->name }} - {{ $participant->email }}
+                                    </option>
+                                @endforeach
+                            </select>
                         </div>
 
-                        {{-- Email --}}
-                        <div class="mb-3">
-                            <label for="email" class="form-label">
-                                Alamat Email
-                            </label>
-
-                            <input
-                                type="email"
-                                name="email"
-                                id="email"
-                                class="form-control"
-                                placeholder="nama@email.com"
-                                value="{{ old('email') }}"
-                                maxlength="100"
-                                required
-                            >
-                        </div>
-
-                        {{-- Pilihan kursus --}}
-                        <div class="mb-3">
+                        <div class="mb-4">
                             <label for="course_id" class="form-label">
+                                <i class="bi bi-book"></i>
                                 Pilih Kursus
                             </label>
 
@@ -89,45 +76,29 @@
                                 class="form-select"
                                 required
                             >
-                                <option value="">
-                                    -- Pilih Kursus --
-                                </option>
+                                <option value="">-- Pilih Kursus --</option>
 
-                                @foreach ($courses as $id => $course)
+                                @foreach ($courses as $course)
                                     <option
-                                        value="{{ $id }}"
-                                        {{ old('course_id') == $id ? 'selected' : '' }}
+                                        value="{{ $course->id }}"
+                                        {{ old('course_id') == $course->id ? 'selected' : '' }}
                                     >
-                                        {{ $course['name'] }}
+                                        {{ $course->name }}
                                     </option>
                                 @endforeach
                             </select>
                         </div>
 
-                        {{-- Informasi ketersediaan kursus --}}
-                        <div
-                            id="availability"
-                            class="alert alert-info d-none"
-                            role="alert"
-                        >
-                            <span id="availability-message"></span>
+                        <div class="d-flex flex-wrap gap-2">
+                            <button type="submit" class="btn btn-neon">
+                                Daftarkan Peserta
+                            </button>
+
+                            <a href="{{ route('enrollments.index') }}"
+                               class="btn btn-neon-outline">
+                                Lihat Laporan
+                            </a>
                         </div>
-
-                        {{-- Tombol pendaftaran --}}
-                        <button
-                            type="submit"
-                            class="btn btn-primary w-100 mt-3"
-                        >
-                            Lanjutkan Pendaftaran
-                        </button>
-
-                        {{-- Tombol kembali --}}
-                        <a
-                            href="{{ route('home') }}"
-                            class="btn btn-outline-secondary w-100 mt-2"
-                        >
-                            Kembali ke Beranda
-                        </a>
 
                     </form>
 
@@ -137,5 +108,4 @@
         </div>
     </div>
 </div>
-
 @endsection
