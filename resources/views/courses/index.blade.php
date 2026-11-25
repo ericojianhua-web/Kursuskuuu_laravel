@@ -8,289 +8,425 @@
 <style>
     .kk-course-list {
         min-height: 100vh;
-        padding: 55px 20px;
-        color: #eaf6ff;
-        background:
-            radial-gradient(circle at 10% 10%, rgba(37, 99, 235, .18), transparent 35%),
-            radial-gradient(circle at 90% 80%, rgba(34, 211, 238, .10), transparent 30%),
-            #071426;
+        padding: 35px 15px;
+        color: #e2e8f0;
     }
 
-    .kk-course-list .list-wrapper {
-        max-width: 1400px;
-        margin: auto;
+    .list-wrapper {
+        max-width: 1250px;
+        margin: 0 auto;
     }
 
-    .kk-course-list .eyebrow {
-        display: inline-block;
-        padding: 7px 15px;
-        margin-bottom: 14px;
-        border: 1px solid rgba(34, 211, 238, .35);
-        border-radius: 30px;
-        background: rgba(34, 211, 238, .08);
-        color: #22d3ee;
-        font-size: 12px;
+    .eyebrow {
+        color: #38bdf8;
+        font-size: 13px;
         font-weight: 700;
         letter-spacing: 2px;
-    }
-
-    .kk-course-list .page-heading h2 {
-        margin-bottom: 8px;
-        color: #fff;
-        font-size: clamp(28px, 4vw, 38px);
-        font-weight: 800;
-    }
-
-    .kk-course-list .page-heading p {
-        color: #9fb3ca;
-    }
-
-    .kk-course-list .btn-add {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        padding: 12px 20px;
-        border: none;
-        border-radius: 10px;
-        background: linear-gradient(100deg, #2563eb, #22d3ee);
-        color: #061525;
-        font-weight: 800;
-        text-decoration: none;
-        transition: .25s ease;
-        white-space: nowrap;
-    }
-
-    .kk-course-list .btn-add:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 25px rgba(34, 211, 238, .2);
-        color: #061525;
-    }
-
-    .kk-course-list .success-alert {
-        padding: 15px 18px;
-        margin: 22px 0;
-        border: 1px solid rgba(34, 197, 94, .3);
-        border-radius: 12px;
-        background: rgba(22, 163, 74, .12);
-        color: #86efac;
-    }
-
-    .kk-course-list .table-card {
-        overflow: hidden;
-        margin-top: 28px;
-        border: 1px solid rgba(96, 165, 250, .2);
-        border-radius: 20px;
-        background: linear-gradient(145deg, #10243d, #0b1b30);
-        box-shadow: 0 20px 55px rgba(0, 0, 0, .25);
-    }
-
-    .kk-course-list .table-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 15px;
-        padding: 22px 25px;
-        border-bottom: 1px solid rgba(148, 163, 184, .15);
-    }
-
-    .kk-course-list .table-header h5 {
-        margin: 0;
-        color: #fff;
-        font-weight: 700;
-    }
-
-    .kk-course-list .table-header span {
-        color: #8fa8c2;
-        font-size: 13px;
-    }
-
-    .kk-course-list .table-responsive {
-        padding: 10px 18px;
-    }
-
-    .kk-course-list table {
-        width: 100%;
-        min-width: 1050px;
-        margin: 0;
-        border-collapse: separate;
-        border-spacing: 0;
-        color: #dcecff;
-        vertical-align: middle;
-    }
-
-    .kk-course-list table thead th {
-        padding: 17px 13px;
-        border-bottom: 1px solid rgba(34, 211, 238, .2);
-        background: rgba(34, 211, 238, .06);
-        color: #22d3ee;
-        font-size: 12px;
-        font-weight: 800;
-        letter-spacing: .7px;
         text-transform: uppercase;
-        white-space: nowrap;
+        margin-bottom: 8px;
     }
 
-    .kk-course-list table tbody td {
-        padding: 17px 13px;
-        border-bottom: 1px solid rgba(148, 163, 184, .1);
-        background: transparent;
-        color: #cbdcf0;
-        font-size: 13px;
-    }
-
-    .kk-course-list table tbody tr:last-child td {
-        border-bottom: none;
-    }
-
-    .kk-course-list table tbody tr {
-        transition: .2s ease;
-    }
-
-    .kk-course-list table tbody tr:hover td {
-        background: rgba(34, 211, 238, .045);
-    }
-
-    .kk-course-list .course-code {
-        display: inline-block;
-        padding: 6px 10px;
-        border: 1px solid rgba(34, 211, 238, .2);
-        border-radius: 7px;
-        background: rgba(34, 211, 238, .08);
-        color: #67e8f9;
-        font-weight: 700;
-    }
-
-    .kk-course-list .course-name {
-        color: #fff;
-        font-weight: 700;
-    }
-
-    .kk-course-list .status {
-        display: inline-block;
-        padding: 6px 11px;
-        border-radius: 30px;
-        font-size: 11px;
+    .page-heading {
+        color: #f8fafc;
+        font-size: 30px;
         font-weight: 800;
+        margin-bottom: 8px;
     }
 
-    .kk-course-list .status-open {
-        border: 1px solid rgba(34, 197, 94, .3);
-        background: rgba(34, 197, 94, .12);
-        color: #86efac;
+    .page-description {
+        color: #94a3b8;
+        margin-bottom: 25px;
     }
 
-    .kk-course-list .status-closed {
-        border: 1px solid rgba(239, 68, 68, .3);
-        background: rgba(239, 68, 68, .12);
-        color: #fca5a5;
-    }
-
-    .kk-course-list .status-draft {
-        border: 1px solid rgba(148, 163, 184, .3);
-        background: rgba(148, 163, 184, .12);
-        color: #cbd5e1;
-    }
-
-    .kk-course-list .action-group {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-    }
-
-    .kk-course-list .action-btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 7px 11px;
-        border: 1px solid transparent;
-        border-radius: 7px;
-        font-size: 12px;
-        font-weight: 700;
+    .btn-add {
+        display: inline-block;
+        background: linear-gradient(135deg, #2563eb, #0891b2);
+        color: white;
+        padding: 11px 18px;
+        border-radius: 10px;
         text-decoration: none;
-        transition: .2s ease;
-        cursor: pointer;
+        font-weight: 700;
+        border: none;
+        transition: 0.2s;
     }
 
-    .kk-course-list .btn-detail {
-        border-color: rgba(34, 211, 238, .3);
-        background: rgba(34, 211, 238, .1);
-        color: #67e8f9;
-    }
-
-    .kk-course-list .btn-edit {
-        border-color: rgba(251, 191, 36, .3);
-        background: rgba(251, 191, 36, .1);
-        color: #fcd34d;
-    }
-
-    .kk-course-list .btn-delete {
-        border-color: rgba(239, 68, 68, .3);
-        background: rgba(239, 68, 68, .1);
-        color: #fca5a5;
-    }
-
-    .kk-course-list .action-btn:hover {
-        filter: brightness(1.2);
+    .btn-add:hover {
+        color: white;
+        opacity: 0.85;
         transform: translateY(-2px);
     }
 
-    .kk-course-list .empty-state {
-        padding: 55px 20px !important;
-        text-align: center;
-        color: #9fb3ca !important;
+    .success-alert {
+        background: rgba(34, 197, 94, 0.12);
+        border: 1px solid rgba(34, 197, 94, 0.3);
+        color: #86efac;
+        padding: 14px 18px;
+        border-radius: 10px;
+        margin: 20px 0;
     }
 
-    .kk-course-list .empty-icon {
-        margin-bottom: 15px;
-        font-size: 38px;
+    .search-card {
+        background: #172554;
+        border: 1px solid #334155;
+        border-radius: 14px;
+        padding: 20px;
+        margin: 25px 0;
     }
 
-    .kk-course-list .table-footer {
-        padding: 18px 25px;
-        border-top: 1px solid rgba(148, 163, 184, .15);
-        color: #8fa8c2;
+    .search-card label {
+        display: block;
+        color: #cbd5e1;
+        font-size: 13px;
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+
+    .search-card .form-control,
+    .search-card .form-select {
+        background: #0f172a;
+        color: #f8fafc;
+        border: 1px solid #475569;
+        border-radius: 8px;
+        min-height: 43px;
+    }
+
+    .search-card .form-control:focus,
+    .search-card .form-select:focus {
+        background: #0f172a;
+        color: white;
+        border-color: #38bdf8;
+        box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+    }
+
+    .search-card .form-control::placeholder {
+        color: #64748b;
+    }
+
+    .search-card .form-select option {
+        background: #0f172a;
+        color: #f8fafc;
+    }
+
+    .btn-search {
+        background: #2563eb;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 10px 20px;
+        font-weight: 700;
+        min-height: 43px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    .btn-search:hover {
+        background: #1d4ed8;
+    }
+
+    .btn-reset {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: #334155;
+        color: #e2e8f0;
+        border-radius: 8px;
+        padding: 10px 18px;
+        min-height: 43px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: 0.2s;
+    }
+
+    .btn-reset:hover {
+        background: #475569;
+        color: white;
+    }
+
+    .table-card {
+        background: #172554;
+        border: 1px solid #334155;
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    }
+
+    .table-header {
+        padding: 20px 22px;
+        border-bottom: 1px solid #334155;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .table-header h4 {
+        color: #f8fafc;
+        font-size: 18px;
+        font-weight: 700;
+        margin: 0;
+    }
+
+    .table-header span {
+        color: #94a3b8;
         font-size: 13px;
     }
 
-    .kk-course-list .btn-home {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 10px 17px;
-        border: 1px solid #45617f;
-        border-radius: 9px;
-        color: #cbdcf0;
-        text-decoration: none;
-        transition: .2s ease;
+    .table-responsive {
+        width: 100%;
     }
 
-    .kk-course-list .btn-home:hover {
-        border-color: #22d3ee;
-        color: #22d3ee;
+    .course-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0;
+        color: #e2e8f0;
+    }
+
+    .course-table thead {
+        background: #0f172a;
+    }
+
+    .course-table th {
+        color: #93c5fd;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        padding: 16px 13px;
+        white-space: nowrap;
+        border-bottom: 1px solid #334155;
+    }
+
+    .course-table td {
+        padding: 16px 13px;
+        border-bottom: 1px solid #334155;
+        font-size: 13px;
+        vertical-align: middle;
+    }
+
+    .course-table tbody tr:hover {
+        background: rgba(59, 130, 246, 0.08);
+    }
+
+    .course-code {
+        color: #38bdf8;
+        font-weight: 700;
+    }
+
+    .course-name {
+        color: #f8fafc;
+        font-weight: 700;
+    }
+
+    .course-fee {
+        color: #86efac;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    .status-badge {
+        display: inline-block;
+        padding: 6px 11px;
+        border-radius: 20px;
+        font-size: 11px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    .status-open {
+        background: rgba(34, 197, 94, 0.15);
+        color: #86efac;
+    }
+
+    .status-closed {
+        background: rgba(239, 68, 68, 0.15);
+        color: #fca5a5;
+    }
+
+    .status-draft {
+        background: rgba(234, 179, 8, 0.15);
+        color: #fde047;
+    }
+
+    .action-group {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+    }
+
+    .btn-action {
+        display: inline-block;
+        padding: 6px 10px;
+        border-radius: 7px;
+        font-size: 11px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: 0.2s;
+    }
+
+    .btn-detail {
+        background: rgba(59, 130, 246, 0.15);
+        color: #93c5fd;
+    }
+
+    .btn-detail:hover {
+        background: #2563eb;
+        color: white;
+    }
+
+    .btn-edit {
+        background: rgba(234, 179, 8, 0.15);
+        color: #fde047;
+    }
+
+    .btn-edit:hover {
+        background: #ca8a04;
+        color: white;
+    }
+
+    .empty-state {
+        text-align: center;
+        padding: 55px 20px !important;
+        color: #94a3b8;
+    }
+
+    .empty-icon {
+        font-size: 45px;
+        margin-bottom: 15px;
+    }
+
+    .empty-state h5 {
+        color: #f8fafc;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    .empty-state p {
+        margin-bottom: 20px;
+    }
+
+    .table-footer {
+        padding: 18px 22px;
+        color: #94a3b8;
+        font-size: 13px;
+        border-top: 1px solid #334155;
+    }
+
+    .table-footer strong {
+        color: #38bdf8;
+    }
+
+    /* PAGINATION BOOTSTRAP 5 */
+    .pagination-wrapper {
+        padding: 18px 22px;
+        border-top: 1px solid #334155;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .pagination .page-item {
+        margin: 0;
+    }
+
+    .pagination .page-link {
+        min-width: 38px;
+        height: 38px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 6px 12px;
+        background: #0f172a;
+        border: 1px solid #334155;
+        border-radius: 8px !important;
+        color: #93c5fd;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        box-shadow: none;
+    }
+
+    .pagination .page-link:hover {
+        background: #2563eb;
+        border-color: #2563eb;
+        color: white;
+    }
+
+    .pagination .page-item.active .page-link {
+        background: #2563eb;
+        border-color: #2563eb;
+        color: white;
+    }
+
+    .pagination .page-item.disabled .page-link {
+        background: #1e293b;
+        color: #64748b;
+        border-color: #334155;
+        opacity: 0.65;
+    }
+
+    .pagination .page-link svg {
+        width: 16px !important;
+        height: 16px !important;
+    }
+
+    .btn-home {
+        display: inline-block;
+        color: #93c5fd;
+        text-decoration: none;
+        font-weight: 600;
+        margin-top: 22px;
+    }
+
+    .btn-home:hover {
+        color: #38bdf8;
     }
 
     @media (max-width: 768px) {
-        .kk-course-list {
-            padding: 35px 14px;
+        .page-heading {
+            font-size: 25px;
         }
 
-        .kk-course-list .top-section {
-            align-items: flex-start !important;
-            flex-direction: column;
-        }
-
-        .kk-course-list .btn-add {
-            width: 100%;
-        }
-
-        .kk-course-list .table-header {
+        .table-header {
             align-items: flex-start;
             flex-direction: column;
         }
 
-        .kk-course-list .table-responsive {
-            padding: 8px;
+        .search-card {
+            padding: 15px;
+        }
+
+        .course-table th,
+        .course-table td {
+            padding: 12px 10px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .pagination-wrapper {
+            padding: 12px 6px;
+        }
+
+        .pagination {
+            gap: 5px;
+        }
+
+        .pagination .page-link {
+            min-width: 34px;
+            height: 34px;
+            padding: 5px 9px;
+            font-size: 12px;
         }
     }
 </style>
@@ -298,49 +434,97 @@
 <div class="kk-course-list">
     <div class="list-wrapper">
 
-        <div class="top-section d-flex justify-content-between align-items-center gap-3">
+        <div class="eyebrow">KursusKu Management</div>
 
-            <div class="page-heading">
-                <span class="eyebrow">KURSUSKU MANAGEMENT</span>
-                <h2>Daftar Kursus</h2>
-                <p class="mb-0">
-                    Kelola dan pantau seluruh program pembelajaran KursusKu.
-                </p>
-            </div>
+        <h1 class="page-heading">Daftar Kursus</h1>
 
-            <a href="{{ route('courses.create') }}" class="btn-add">
-                <span>＋</span> Tambah Kursus
-            </a>
+        <p class="page-description">
+            Kelola seluruh program kursus yang tersedia di KursusKu.
+        </p>
 
-        </div>
+        <a href="{{ route('courses.create') }}" class="btn-add">
+            + Tambah Kursus
+        </a>
 
         @if (session('success'))
             <div class="success-alert">
-                <strong>✓ Berhasil!</strong>
-                {{ session('success') }}
-
-                <button type="button"
-                        class="btn-close float-end"
-                        data-bs-dismiss="alert"
-                        aria-label="Close">
-                </button>
+                ✓ {{ session('success') }}
             </div>
         @endif
 
+        {{-- FORM PENCARIAN DAN FILTER --}}
+        <div class="search-card">
+            <form method="GET" action="{{ route('courses.index') }}">
+                <div class="row g-3 align-items-end">
+
+                    <div class="col-md-6">
+                        <label for="q">Cari Kursus</label>
+
+                        <input
+                            type="text"
+                            name="q"
+                            id="q"
+                            class="form-control"
+                            placeholder="Masukkan kode atau nama kursus..."
+                            value="{{ $search ?? request('q') }}"
+                        >
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="status">Filter Status</label>
+
+                        <select name="status" id="status" class="form-select">
+                            <option value="">Semua Status</option>
+
+                            <option value="open"
+                                {{ ($status ?? request('status')) === 'open' ? 'selected' : '' }}>
+                                Dibuka
+                            </option>
+
+                            <option value="closed"
+                                {{ ($status ?? request('status')) === 'closed' ? 'selected' : '' }}>
+                                Ditutup
+                            </option>
+
+                            <option value="draft"
+                                {{ ($status ?? request('status')) === 'draft' ? 'selected' : '' }}>
+                                Draft
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-3 d-flex gap-2">
+                        <button type="submit" class="btn-search">
+                            Cari
+                        </button>
+
+                        <a href="{{ route('courses.index') }}" class="btn-reset">
+                            Reset
+                        </a>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+
+        {{-- TABEL DATA KURSUS --}}
         <div class="table-card">
 
             <div class="table-header">
-                <h5>✦ Data Kursus</h5>
-                <span>Informasi seluruh kursus yang tersedia</span>
+                <h4>Data Kursus</h4>
+
+                <span>
+                    Menampilkan {{ $courses->count() }} dari
+                    {{ $courses->total() }} kursus
+                </span>
             </div>
 
             <div class="table-responsive">
-
-                <table class="table">
+                <table class="course-table">
 
                     <thead>
                         <tr>
-                            <th>No.</th>
+                            <th>No</th>
                             <th>Kode</th>
                             <th>Nama Kursus</th>
                             <th>Biaya</th>
@@ -356,7 +540,9 @@
                         @forelse ($courses as $course)
 
                             <tr>
-                                <td>{{ $loop->iteration }}</td>
+                                <td>
+                                    {{ $courses->firstItem() + $loop->index }}
+                                </td>
 
                                 <td>
                                     <span class="course-code">
@@ -371,50 +557,51 @@
                                 </td>
 
                                 <td>
-                                    Rp{{ number_format($course->fee, 0, ',', '.') }}
+                                    <span class="course-fee">
+                                        Rp {{ number_format($course->fee, 0, ',', '.') }}
+                                    </span>
                                 </td>
 
-                                <td>{{ $course->quota }} peserta</td>
+                                <td>
+                                    {{ $course->quota }}
+                                </td>
 
                                 <td>
-                                    {{ $course->start_date->format('d/m/Y') }}
+                                    {{ $course->start_date ? $course->start_date->format('d-m-Y') : '-' }}
                                 </td>
 
                                 <td>
                                     @if ($course->status === 'open')
-                                        <span class="status status-open">● Open</span>
+                                        <span class="status-badge status-open">
+                                            Dibuka
+                                        </span>
                                     @elseif ($course->status === 'closed')
-                                        <span class="status status-closed">● Closed</span>
+                                        <span class="status-badge status-closed">
+                                            Ditutup
+                                        </span>
                                     @else
-                                        <span class="status status-draft">● Draft</span>
+                                        <span class="status-badge status-draft">
+                                            Draft
+                                        </span>
                                     @endif
                                 </td>
 
                                 <td>
                                     <div class="action-group">
 
-                                        <a href="{{ route('courses.show', $course) }}"
-                                           class="action-btn btn-detail">
+                                        <a
+                                            href="{{ route('courses.show', $course) }}"
+                                            class="btn-action btn-detail"
+                                        >
                                             Detail
                                         </a>
 
-                                        <a href="{{ route('courses.edit', $course) }}"
-                                           class="action-btn btn-edit">
+                                        <a
+                                            href="{{ route('courses.edit', $course) }}"
+                                            class="btn-action btn-edit"
+                                        >
                                             Edit
                                         </a>
-
-                                        <form action="{{ route('courses.destroy', $course) }}"
-                                              method="POST"
-                                              onsubmit="return confirm('Yakin ingin menghapus kursus ini?')">
-
-                                            @csrf
-                                            @method('DELETE')
-
-                                            <button type="submit" class="action-btn btn-delete">
-                                                Hapus
-                                            </button>
-
-                                        </form>
 
                                     </div>
                                 </td>
@@ -424,33 +611,67 @@
 
                             <tr>
                                 <td colspan="8" class="empty-state">
-                                    <div class="empty-icon">📚</div>
-                                    <h5>Belum Ada Data Kursus</h5>
-                                    <p class="mb-3">
-                                        Silakan tambahkan kursus baru untuk mulai mengelola program pembelajaran.
-                                    </p>
 
-                                    <a href="{{ route('courses.create') }}" class="btn-add">
-                                        ＋ Tambah Kursus
-                                    </a>
+                                    <div class="empty-icon">📚</div>
+
+                                    @if (($search ?? '') !== '' || ($status ?? '') !== '')
+
+                                        <h5>Kursus Tidak Ditemukan</h5>
+
+                                        <p>
+                                            Tidak ada kursus yang sesuai dengan pencarian
+                                            atau filter yang dipilih.
+                                        </p>
+
+                                        <a href="{{ route('courses.index') }}" class="btn-add">
+                                            Reset Pencarian
+                                        </a>
+
+                                    @else
+
+                                        <h5>Belum Ada Data Kursus</h5>
+
+                                        <p>
+                                            Silakan tambahkan kursus baru untuk mulai
+                                            mengelola program pembelajaran.
+                                        </p>
+
+                                        <a href="{{ route('courses.create') }}" class="btn-add">
+                                            + Tambah Kursus
+                                        </a>
+
+                                    @endif
+
                                 </td>
                             </tr>
 
                         @endforelse
 
                     </tbody>
-
                 </table>
-
             </div>
 
+            {{-- INFORMASI TOTAL DATA --}}
             <div class="table-footer">
-                Total kursus: <strong>{{ $courses->count() }}</strong> data
+                Menampilkan
+                <strong>{{ $courses->firstItem() ?? 0 }}</strong>
+                sampai
+                <strong>{{ $courses->lastItem() ?? 0 }}</strong>
+                dari
+                <strong>{{ $courses->total() }}</strong>
+                data kursus.
             </div>
+
+            {{-- PAGINATION BOOTSTRAP 5 --}}
+            @if ($courses->hasPages())
+                <div class="pagination-wrapper">
+                    {{ $courses->links('pagination::bootstrap-5') }}
+                </div>
+            @endif
 
         </div>
 
-        <div class="mt-4">
+        <div>
             <a href="{{ route('home') }}" class="btn-home">
                 ← Kembali ke Beranda
             </a>
